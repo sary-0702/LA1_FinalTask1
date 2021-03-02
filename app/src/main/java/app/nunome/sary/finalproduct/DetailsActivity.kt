@@ -22,6 +22,7 @@ class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        val id = intent.getStringExtra("id")
         val names = intent.getStringExtra("name")
         val types= intent.getStringExtra("types")
         val prices = intent.getStringExtra("price")

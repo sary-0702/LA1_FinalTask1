@@ -21,6 +21,7 @@ class EasyActivity : AppCompatActivity() {
         val easyadapter = easyRecyclerViewAdapter(this, object : easyRecyclerViewAdapter.OnItemClickListener {
             override fun onItemClick(item: Store) {
                 val toDetailsIntent = Intent(this@EasyActivity, DetailsActivity::class.java)
+                toDetailsIntent.putExtra("id", item.id)
                 toDetailsIntent.putExtra("name", item.storesname)
                 toDetailsIntent.putExtra("types", item.foodtype)
                 toDetailsIntent.putExtra("price", item.foodprice)

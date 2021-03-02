@@ -11,6 +11,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_add.*
+import java.util.*
 
 
 class AddActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -55,7 +56,7 @@ class AddActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun save(storename: String, type: String, price: String, checks: String) {
         realm.executeTransaction {
-            val store = it.createObject(Store::class.java)
+            val store = it.createObject(Store::class.java, UUID.randomUUID().toString())
             store.storesname = storename
             store.foodtype = type
             store.foodprice = price

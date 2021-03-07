@@ -13,6 +13,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import io.realm.Realm
+import io.realm.RealmResults
 import kotlinx.android.synthetic.main.activity_details.*
 
 class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -29,16 +30,24 @@ class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
         val view = mapFragment.view
         view?.isClickable = true
 
+        /*
         val id = intent.getStringExtra("id")
         val names = intent.getStringExtra("name")
         val types= intent.getStringExtra("types")
         val prices = intent.getStringExtra("price")
         val adresss = intent.getStringExtra("adress")
 
-        storesTextVIew.setText(names)
-        typesTextView.setText(types)
-        pricesTextView.setText(prices)
-        adressTextView.setText(adresss)
+         */
+
+        val id = intent.getStringExtra("id")
+        val storedata = realm.where(Store::class.java)
+                .equalTo("id", id)
+                .findFirst()
+
+        storesTextVIew.setText(storedata?.storesname)
+        typesTextView.setText(storedata?.foodtype)
+        pricesTextView.setText(storedata?.foodprice)
+        adressTextView.setText(storedata?.adrees)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar5)
         setSupportActionBar(toolbar)

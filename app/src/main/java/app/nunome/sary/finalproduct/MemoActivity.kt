@@ -43,6 +43,8 @@ class MemoActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val toDetailIntent = Intent(this@MemoActivity, DetailsActivity::class.java)
+        val id = intent.getStringExtra("id")
+        toDetailIntent.putExtra("id", id)
         startActivity(toDetailIntent)
         return super.onOptionsItemSelected(item)
     }

@@ -14,8 +14,8 @@ android {
         applicationId "app.nunome.sary.finalproduct"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
         // Set the properties within `local.properties` into a `Properties` class so that values
         // within `local.properties` (e.g. Maps API key) are accessible in this file.
         Properties properties = new Properties()

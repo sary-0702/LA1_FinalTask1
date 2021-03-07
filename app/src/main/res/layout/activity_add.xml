@@ -17,7 +17,8 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/abc_vector_test"/>
 
     <LinearLayout
         android:layout_width="393dp"
@@ -42,6 +43,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:orientation="horizontal">
 
             <EditText
@@ -64,11 +66,51 @@
 
         </LinearLayout>
 
+        <EditText
+            android:id="@+id/adressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:ems="10"
+            android:hint="住所"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/infoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="googlemapで住所を探す"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/findEditText"
+                android:layout_width="113dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="場所+食べたいもの"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/findButton"
+                android:layout_width="196dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#f8e352"
+                android:text="GoogleMapで検索" />
+        </LinearLayout>
+
         <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="403dp"
-            android:layout_height="432dp" />
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginBottom="40dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

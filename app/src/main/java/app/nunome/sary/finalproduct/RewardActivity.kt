@@ -27,6 +27,7 @@ class RewardActivity : AppCompatActivity() {
                 toDetailsIntent.putExtra("name", item.storesname)
                 toDetailsIntent.putExtra("types", item.foodtype)
                 toDetailsIntent.putExtra("price", item.foodprice)
+                toDetailsIntent.putExtra("adress", item.adrees)
                 toDetailsIntent.putExtra("checks", item.check)
                 startActivity(toDetailsIntent)
             }

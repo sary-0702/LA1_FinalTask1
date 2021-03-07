@@ -3,6 +3,7 @@ package app.nunome.sary.finalproduct
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.realm.Realm
 import io.realm.RealmResults
@@ -17,6 +18,7 @@ class EasyActivity : AppCompatActivity() {
         setContentView(R.layout.activity_easy)
 
         val easyStore = readAll()
+        Log.d("data", easyStore.toString())
 
         val easyadapter = easyRecyclerViewAdapter(this, object : easyRecyclerViewAdapter.OnItemClickListener {
             override fun onItemClick(item: Store) {
@@ -25,10 +27,12 @@ class EasyActivity : AppCompatActivity() {
                 toDetailsIntent.putExtra("name", item.storesname)
                 toDetailsIntent.putExtra("types", item.foodtype)
                 toDetailsIntent.putExtra("price", item.foodprice)
+                toDetailsIntent.putExtra("adress", item.adrees)
                 toDetailsIntent.putExtra("checks", item.check)
                 startActivity(toDetailsIntent)
             }
         })
+
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = easyadapter
 
@@ -44,5 +48,6 @@ class EasyActivity : AppCompatActivity() {
         return realm.where(Store::class.java)
             .equalTo("check", "1")
             .findAll()
+
     }
 }

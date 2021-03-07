@@ -17,7 +17,9 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu"
+        app:navigationIcon="@drawable/abc_vector_test"/>
 
     <LinearLayout
         android:layout_width="342dp"
@@ -69,11 +71,28 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/adressTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:background="#5EE6E6E6"
+            android:hint="住所"
+            android:textSize="18sp" />
+
         <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="430dp" />
+            android:layout_height="209dp"
+            android:layout_marginBottom="36dp" />
+
+        <Button
+            android:id="@+id/memoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#f8e352"
+            android:text="メモ" />
 
 
     </LinearLayout>

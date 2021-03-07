@@ -9,5 +9,9 @@ open class Store(
     open var storesname: String = "",
     open var foodtype: String = "",
     open var foodprice: String = "",
-    open var check: String = ""
+    open var adrees : String = "",
+    open var check: String = "",
+    open var firstmarker: Double = 0.0,
+    open var secondmarker: Double = 0.0,
+    open var memo: String = ""
 ) : RealmObject()

@@ -22,8 +22,8 @@
         app:navigationIcon="@drawable/abc_vector_test"/>
 
     <LinearLayout
-        android:layout_width="342dp"
-        android:layout_height="653dp"
+        android:layout_width="330dp"
+        android:layout_height="594dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
@@ -31,13 +31,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar5">
 
         <TextView
             android:id="@+id/storesTextVIew"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#5EE6E6E6"
+            android:background="@drawable/border"
+            android:backgroundTint="#5EE6E6E6"
             android:ems="10"
             android:hint="店名"
             android:textSize="36sp" />
@@ -53,8 +54,10 @@
                 android:id="@+id/typesTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
-                android:background="#5EE6E6E6"
+                android:background="@drawable/border"
+                android:backgroundTint="#5EE6E6E6"
                 android:ems="10"
                 android:hint="種類"
                 android:textSize="18sp" />
@@ -63,8 +66,10 @@
                 android:id="@+id/pricesTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
                 android:layout_weight="1"
-                android:background="#5EE6E6E6"
+                android:background="@drawable/border"
+                android:backgroundTint="#5EE6E6E6"
                 android:ems="10"
                 android:hint="値段"
                 android:textSize="18sp" />
@@ -76,7 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="64dp"
-            android:background="#5EE6E6E6"
+            android:background="@drawable/border"
+            android:backgroundTint="#5EE6E6E6"
             android:hint="住所"
             android:textSize="18sp" />
 

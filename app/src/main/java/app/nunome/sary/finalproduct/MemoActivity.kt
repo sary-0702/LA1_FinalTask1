@@ -44,15 +44,16 @@ class MemoActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val toDetailIntent = Intent(this@MemoActivity, DetailsActivity::class.java)
         val id = intent.getStringExtra("id")
+
         toDetailIntent.putExtra("id", id)
         startActivity(toDetailIntent)
         return super.onOptionsItemSelected(item)
     }
 
-    fun readAll(): RealmResults<Store> {
-        //val id = intent.getStringExtra("id")
-        return realm.where(Store::class.java)
-                //.equalTo("id", id)
+    fun readAll(): RealmResults<Memo> {
+        val id = intent.getStringExtra("id")
+        return realm.where(Memo::class.java)
+                .equalTo("storeId", id)
                 .findAll()
     }
 }

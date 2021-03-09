@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import io.realm.Realm
+import io.realm.kotlin.where
 import kotlinx.android.synthetic.main.activity_add.*
 import kotlinx.android.synthetic.main.activity_memo_add.*
 import java.util.*
@@ -24,12 +25,15 @@ class memoAddActivity : AppCompatActivity() {
 
         memoAddButton.setOnClickListener {
             val memo: String = addMemoEditText.text.toString()
-            //val id = intent.getStringExtra("id")
+            val id = intent.getStringExtra("id")
+
             realm.executeTransaction {
-                val addmemo = realm.createObject(Store::class.java, UUID.randomUUID().toString())
-                addmemo.memo = memo
+                var storesmemo = realm.where<Memo>().equalTo("storeId", id).findFirst()
+                var oldmemodata = storesmemo?.memo.toString()
+                storesmemo?.memo = oldmemodata + "\n" + memo
             }
             val toMemoIntent = Intent(this@memoAddActivity, MemoActivity::class.java)
+            toMemoIntent.putExtra("id", id)
             startActivity(toMemoIntent)
         }
     }

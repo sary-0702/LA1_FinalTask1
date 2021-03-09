@@ -12,6 +12,5 @@ open class Store(
     open var adrees : String = "",
     open var check: String = "",
     open var firstmarker: Double = 0.0,
-    open var secondmarker: Double = 0.0,
-    open var memo: String = ""
+    open var secondmarker: Double = 0.0
 ) : RealmObject()

@@ -77,8 +77,12 @@ class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val delstoredata = realm.where(Store::class.java)
                         .equalTo("id", id)
                         .findAll()
+                val delmemodata = realm.where(Memo::class.java)
+                        .equalTo("storeId", id)
+                        .findAll()
                 realm.executeTransaction {
                     delstoredata.deleteAllFromRealm()
+                    delmemodata.deleteAllFromRealm()
                 }
                 startActivity(toMainActivityIntent)
                 true

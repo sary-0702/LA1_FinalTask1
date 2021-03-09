@@ -44,13 +44,9 @@
         <activity android:name=".AddActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data
-                    android:host="goo.gl"
-                    android:pathPattern="/maps/"
-                    android:scheme="http" />
+                    android:mimeType="text/*" />
             </intent-filter>
         </activity>
     </application>

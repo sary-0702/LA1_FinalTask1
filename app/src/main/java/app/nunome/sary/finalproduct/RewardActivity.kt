@@ -3,6 +3,8 @@ package app.nunome.sary.finalproduct
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Switch
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.realm.Realm
 import io.realm.RealmResults
@@ -24,14 +26,21 @@ class RewardActivity : AppCompatActivity() {
             override fun onItemClick(item: Store) {
                 val toDetailsIntent = Intent(this@RewardActivity, DetailsActivity::class.java)
                 toDetailsIntent.putExtra("id", item.id)
+                /*
                 toDetailsIntent.putExtra("name", item.storesname)
                 toDetailsIntent.putExtra("types", item.foodtype)
                 toDetailsIntent.putExtra("price", item.foodprice)
                 toDetailsIntent.putExtra("adress", item.adrees)
                 toDetailsIntent.putExtra("checks", item.check)
+
+                 */
                 startActivity(toDetailsIntent)
             }
         })
+
+        val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager(this).getOrientation())
+        recyclerView.addItemDecoration(dividerItemDecoration)
+        
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = rewardadapter
 
@@ -40,6 +49,12 @@ class RewardActivity : AppCompatActivity() {
         rewardaddFloatingActionButton.setOnClickListener {
             val toAddIntent = Intent(this@RewardActivity, AddActivity::class.java)
             startActivity(toAddIntent)
+        }
+
+        val switch = findViewById<Switch>(R.id.RewardSwitch)
+        switch.setOnCheckedChangeListener { buttonView, isCheckedOff ->
+            val toEasyIntent = Intent(this@RewardActivity, EasyActivity::class.java)
+            startActivity(toEasyIntent)
         }
     }
 

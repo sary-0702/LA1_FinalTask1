@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.easy_store_data_cell.view.*
 
 class memoRecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<memoRecyclerViewAdapter.ViewHolder> () {
 
-    val storememo: MutableList<Store> = mutableListOf()
+    val storememo: MutableList<Memo> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.memo_data_cell, parent, false)
@@ -33,7 +33,7 @@ class memoRecyclerViewAdapter(private val context: Context) : RecyclerView.Adapt
         */
     }
 
-    fun addAll(storememo: List<Store>) {
+    fun addAll(storememo: List<Memo>) {
         this.storememo.addAll(storememo)
         notifyDataSetChanged()
     }

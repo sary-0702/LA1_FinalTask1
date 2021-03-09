@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.CheckBox
-import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -29,7 +28,7 @@ class AddActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar2)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -43,18 +42,20 @@ class AddActivity : AppCompatActivity(), OnMapReadyCallback {
         easycheckBox.setOnClickListener {
             checks = "1"
         }
-        rewardcheckBox.setOnClickListener{
+        rewardcheckBox.setOnClickListener {
             checks = "2"
         }
+
 
         findButton.setOnClickListener {
             val findname = findEditText.text.toString()
             val mapIntent = Intent(Intent.ACTION_VIEW)
             mapIntent.data = Uri.parse("https://www.google.com/maps/search/?api=1&query=" + findname)
-            if(mapIntent.resolveActivity(packageManager) != null) {
+            if (mapIntent.resolveActivity(packageManager) != null) {
                 startActivity(mapIntent)
             }
         }
+
 
         registerButton.setOnClickListener {
             val storename: String = storeEditText.text.toString()
@@ -88,7 +89,14 @@ class AddActivity : AppCompatActivity(), OnMapReadyCallback {
             store.check = checks
             store.firstmarker = onemark
             store.secondmarker = twomark
+            val id : String = store.id
+            save2(id)
         }
+    }
+
+    fun save2(id: String) {
+        val memo = realm.createObject(Memo::class.java, UUID.randomUUID().toString())
+        memo.storeId = id
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -112,5 +120,4 @@ class AddActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         })
     }
-
 }

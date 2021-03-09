@@ -45,4 +45,25 @@
         app:layout_constraintTop_toBottomOf="@+id/addMemoEditText"
         app:layout_constraintVertical_bias="0.188" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="136dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/_c_choju9_0023_s128_choju9_0023_7" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="103dp"
+        android:layout_height="98dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pancake" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

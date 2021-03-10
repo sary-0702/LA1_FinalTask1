@@ -56,6 +56,13 @@ class AddActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
+        when {
+            intent?.action == Intent.ACTION_SEND -> {
+                if ("text/*" == intent.type) {
+                    handleSendText(intent) // Handle text being sent
+                }
+            }
+        }
 
         registerButton.setOnClickListener {
             val storename: String = storeEditText.text.toString()
@@ -70,6 +77,13 @@ class AddActivity : AppCompatActivity(), OnMapReadyCallback {
 
             val toMainIntent = Intent(this@AddActivity, MainActivity::class.java)
             startActivity(toMainIntent)
+        }
+    }
+
+    private fun handleSendText(intent: Intent) {
+        intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
+            // Update UI to reflect text being shared
+            storeEditText.setText(Intent.EXTRA_TEXT)
         }
     }
 
